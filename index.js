@@ -156,10 +156,15 @@ const api = {
   success: (msg, opt) => MyToast.show(msg, { ...opt, type: "success" }),
   error: (msg, opt) => MyToast.show(msg, { ...opt, type: "error" }),
   warning: (msg, opt) => MyToast.show(msg, { ...opt, type: "warning" }),
+  test: () => {
+    const types = [
+      { fn: api.info, msg: "Welcome to use What They Toast To!", opt: { duration: 5000 } },
+      { fn: api.success, msg: "You have successfully logged in!", opt: {} },
+      { fn: api.error, msg: "An error occurred while processing your request.", opt: {} },
+      { fn: api.warning, msg: "Your subscription is about to expire.", opt: {} }
+    ];
+    const random = types[Math.floor(Math.random() * types.length)];
+    random.fn(random.msg, random.opt);
+  }
 };
 window.toast = api;
-
-// MyToast.info("Welcome to use What They Toast To!", { duration: 5000 });
-// MyToast.success("You have successfully logged in!");
-// MyToast.error("An error occurred while processing your request.");
-// MyToast.warning("Your subscription is about to expire.");

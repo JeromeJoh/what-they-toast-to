@@ -31,11 +31,13 @@ class MyToast extends HTMLElement {
             flex-direction: column;
             gap: 10px;
             pointer-events: none;
+            align-items: inherit;
           }
 
           .toast {
             position: relative;
-            min-width: 250px;
+            display: inline-flex;
+            width: fit-content;
             max-width: 70vh;
             padding: 20px 48px 20px 20px;
             border-radius: 4px;
